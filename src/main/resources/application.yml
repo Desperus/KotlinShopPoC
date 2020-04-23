@@ -1,1 +1,11 @@
-spring:  kafka:    consumer:      group-id: products      auto-offset-reset: earliest    bootstrap-servers: localhost:9092pocapp:  topics: product_changes
+spring:
+  kafka:
+    consumer:
+      group-id: products
+      auto-offset-reset: earliest
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.springframework.kafka.support.serializer.JsonDeserializer
+    bootstrap-servers: localhost:9092
+
+pocapp:
+  topic.product: product_changes
