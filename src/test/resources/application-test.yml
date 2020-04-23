@@ -4,6 +4,7 @@ spring:
       bootstrap-servers: ${pocapp.test.bootstrap-servers}
       key-serializer: org.apache.kafka.common.serialization.StringSerializer
       value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
+      properties.spring.json.add.type.headers: false
     consumer.bootstrap-servers: ${pocapp.test.bootstrap-servers}
 
 pocapp.test.bootstrap-servers: <will be initialized in code>

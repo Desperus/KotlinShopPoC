@@ -42,6 +42,7 @@ class ShoppingApplicationTests {
         future.get(10, TimeUnit.SECONDS)
 
         // then
+        Thread.sleep(10_000)
     }
 
 }
