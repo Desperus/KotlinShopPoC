@@ -1,7 +1,6 @@
 package com.epam.shopping.kafka
 
 import com.epam.shopping.model.ProductChangeEvent
-import org.apache.kafka.clients.consumer.ConsumerRecord
 import org.springframework.kafka.annotation.KafkaListener
 import org.springframework.stereotype.Component
 
@@ -9,9 +8,9 @@ import org.springframework.stereotype.Component
 class ProductChangeEventConsumer {
 
     @KafkaListener(topics = ["\${pocapp.topic.product}"])
-    fun consumeProductEvents(productRecords: List<ConsumerRecord<String, ProductChangeEvent>>) {
+    fun consumeProductEvents(productEvents: List<ProductChangeEvent>) {
         try {
-            productRecords.forEach { println("Received event [key=${it.key()}, value=${it.value()}") }
+            productEvents.forEach { println("Received event $it") }
         } catch (e: Exception) {
             println("Handle failover scenario")
         }
