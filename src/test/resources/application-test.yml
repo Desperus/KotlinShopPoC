@@ -1,5 +1,9 @@
 spring:
   kafka:
-    bootstrap-servers: localhost:9092
-    key-serializer: org.apache.kafka.common.serialization.StringSerializer
-    value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
+    producer:
+      bootstrap-servers: ${pocapp.test.bootstrap-servers}
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
+    consumer.bootstrap-servers: ${pocapp.test.bootstrap-servers}
+
+pocapp.test.bootstrap-servers: localhost:19092

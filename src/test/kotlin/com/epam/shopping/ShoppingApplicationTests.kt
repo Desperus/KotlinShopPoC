@@ -1,5 +1,6 @@
 package com.epam.shopping
 
+import com.epam.shopping.config.TestKafkaConfig
 import com.epam.shopping.model.ProductChangeEvent
 import org.junit.jupiter.api.Test
 import org.springframework.beans.factory.annotation.Autowired
@@ -9,7 +10,7 @@ import org.springframework.kafka.core.KafkaTemplate
 import org.springframework.test.context.ActiveProfiles
 import java.util.concurrent.TimeUnit
 
-@SpringBootTest
+@SpringBootTest(classes = [TestKafkaConfig::class])
 @ActiveProfiles("test")
 class ShoppingApplicationTests {
 
