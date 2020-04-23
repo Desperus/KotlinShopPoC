@@ -22,12 +22,6 @@ class ShoppingApplicationTests {
     @Value("\${pocapp.topic.product}")
     private lateinit var productTopic: String
 
-    @Autowired
-    private lateinit var kafkaBroker: EmbeddedKafkaBroker
-
-    @Autowired
-    private lateinit var kafkaAdmin: KafkaAdmin
-
     @Test
     fun contextLoads() {
     }
