@@ -6,7 +6,10 @@ spring:
       key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
       value-deserializer: org.springframework.kafka.support.serializer.JsonDeserializer
       properties.spring.json.value.default.type: com.epam.shopping.model.ProductChangeEvent
-    bootstrap-servers: localhost:9092
 
 pocapp:
   topic.product: product_changes
+
+# Properties to specify externally:
+# spring.kafka.consumer.bootstrap-servers
+# pocapp.output.url

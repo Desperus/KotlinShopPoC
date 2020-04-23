@@ -7,4 +7,6 @@ spring:
       properties.spring.json.add.type.headers: false
     consumer.bootstrap-servers: ${pocapp.test.bootstrap-servers}
 
-pocapp.test.bootstrap-servers: <will be initialized in code>
+pocapp:
+  test.bootstrap-servers: <will be initialized in code>
+  output.url: localhost:9898
