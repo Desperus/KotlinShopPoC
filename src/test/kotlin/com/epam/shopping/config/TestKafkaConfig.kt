@@ -14,7 +14,7 @@ class TestKafkaConfig {
     @Bean
     fun kafkaBroker(): EmbeddedKafkaBroker {
         return EmbeddedKafkaBroker(1, true, 2, productTopic)
-                .zkPort(19092)
+                .brokerListProperty("pocapp.test.bootstrap-servers")
     }
 
 }

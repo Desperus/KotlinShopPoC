@@ -6,4 +6,4 @@ spring:
       value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
     consumer.bootstrap-servers: ${pocapp.test.bootstrap-servers}
 
-pocapp.test.bootstrap-servers: localhost:19092
+pocapp.test.bootstrap-servers: <will be initialized in code>

@@ -6,7 +6,9 @@ import org.junit.jupiter.api.Test
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.beans.factory.annotation.Value
 import org.springframework.boot.test.context.SpringBootTest
+import org.springframework.kafka.core.KafkaAdmin
 import org.springframework.kafka.core.KafkaTemplate
+import org.springframework.kafka.test.EmbeddedKafkaBroker
 import org.springframework.test.context.ActiveProfiles
 import java.util.concurrent.TimeUnit
 
@@ -19,6 +21,12 @@ class ShoppingApplicationTests {
 
     @Value("\${pocapp.topic.product}")
     private lateinit var productTopic: String
+
+    @Autowired
+    private lateinit var kafkaBroker: EmbeddedKafkaBroker
+
+    @Autowired
+    private lateinit var kafkaAdmin: KafkaAdmin
 
     @Test
     fun contextLoads() {
