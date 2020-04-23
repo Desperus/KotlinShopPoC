@@ -1,0 +1,1 @@
+spring:  kafka:    consumer:      group-id: products      auto-offset-reset: earliest    bootstrap-servers: localhost:9092pocapp:  topics: product_changes
