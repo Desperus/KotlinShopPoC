@@ -9,13 +9,11 @@ import org.junit.jupiter.api.Test
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.beans.factory.annotation.Value
 import org.springframework.boot.test.context.SpringBootTest
-import org.springframework.kafka.core.KafkaAdmin
 import org.springframework.kafka.core.KafkaTemplate
-import org.springframework.kafka.test.EmbeddedKafkaBroker
 import org.springframework.test.context.ActiveProfiles
 import java.util.concurrent.TimeUnit
 
-@SpringBootTest(classes = [TestKafkaConfig::class, TestWebConfig::class])
+@SpringBootTest(classes = [TestKafkaConfig::class, TestWebConfig::class], webEnvironment = SpringBootTest.WebEnvironment.DEFINED_PORT)
 @ActiveProfiles("test")
 class ShoppingApplicationTests {
 

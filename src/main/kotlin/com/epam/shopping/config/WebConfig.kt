@@ -8,15 +8,13 @@ import org.springframework.http.MediaType
 import org.springframework.web.reactive.function.client.WebClient
 
 @Configuration
-class WebConfig(
-        @Value("\${pocapp.output.url}") private val outputBaseUrl: String
-) {
+class WebConfig {
 
     @Bean
-    fun webClient() = WebClient
+    fun webClient(@Value("\${pocapp.output.url}") outputBaseUrl: String) = WebClient
             .builder()
             .baseUrl(outputBaseUrl)
-            .defaultHeader(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_JSON.type)
+            .defaultHeader(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_JSON_VALUE)
             .build()
 
 }
