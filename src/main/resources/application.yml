@@ -1,5 +1,6 @@
 spring:
   kafka:
+    listener.type: BATCH
     consumer:
       group-id: products
       auto-offset-reset: earliest
