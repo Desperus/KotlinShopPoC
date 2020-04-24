@@ -17,13 +17,13 @@ class BusinessLogic(
         productEvents.forEach {
             log.info("Received event {}", it)
             webClient.post()
-                    .uri("/${it.id}")
+                    .uri("/shop/product/${it.id}")
                     .bodyValue(ProductChangeEvent::class.java)
                     .retrieve()
                     .toBodilessEntity()
                     .block(Duration.ofSeconds(10L))
         }
-        log.info("Sent events to external system")
+        log.info("Sent all events to external system")
     }
 
 }
