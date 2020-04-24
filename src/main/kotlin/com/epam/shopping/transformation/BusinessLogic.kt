@@ -18,7 +18,7 @@ class BusinessLogic(
             log.info("Received event {}", it)
             webClient.post()
                     .uri("/shop/product/${it.id}")
-                    .bodyValue(ProductChangeEvent::class.java)
+                    .bodyValue(it)
                     .retrieve()
                     .toBodilessEntity()
                     .block(Duration.ofSeconds(10L))
