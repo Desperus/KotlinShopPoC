@@ -1,25 +1,16 @@
 package com.epam.shopping.shopify
 
-import com.epam.shopping.config.TestKafkaConfig
-import com.epam.shopping.config.TestWebConfig
+import com.epam.shopping.BaseIntegrationTest
 import org.junit.jupiter.api.Test
-import org.springframework.boot.test.context.SpringBootTest
 import org.springframework.boot.web.server.LocalServerPort
 import org.springframework.core.ParameterizedTypeReference
-import org.springframework.test.context.ActiveProfiles
 import org.springframework.web.reactive.function.client.WebClient
 import java.time.Duration
 
-@SpringBootTest(classes = [TestKafkaConfig::class, TestWebConfig::class], webEnvironment = SpringBootTest.WebEnvironment.DEFINED_PORT)
-@ActiveProfiles("test")
-class FulfillmentServiceTest {
+class FulfillmentServiceTest : BaseIntegrationTest() {
 
     @LocalServerPort
     private lateinit var localPort: String
-
-    companion object {
-        val fetchMapType = object: ParameterizedTypeReference<Map<String, String>>() {}
-    }
 
     @Test
     fun shouldFetchTrackingNumbers() {
@@ -72,6 +63,10 @@ class FulfillmentServiceTest {
         checkNotNull(response)
         assert(response.containsKey("123"))
         assert(!response.containsKey("111"))
+    }
+
+    companion object {
+        val fetchMapType = object: ParameterizedTypeReference<Map<String, String>>() {}
     }
 
 }

@@ -10,3 +10,8 @@ spring:
 pocapp:
   test.bootstrap-servers: <will be initialized in code>
   output.url: http://localhost:8080 # Figure out how to use random port
+  shopify:
+    shopUrl: <set through secrets>
+    adminApiUrl: /admin/api/2020-04
+    apikey: <set through secrets>
+    password: <set through secrets>

@@ -1,21 +1,15 @@
 package com.epam.shopping
 
-import com.epam.shopping.config.TestKafkaConfig
-import com.epam.shopping.config.TestWebConfig
 import com.epam.shopping.model.ProductChangeEvent
 import com.epam.shopping.web.ExternalShopStub
 import org.awaitility.Awaitility
 import org.junit.jupiter.api.Test
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.beans.factory.annotation.Value
-import org.springframework.boot.test.context.SpringBootTest
 import org.springframework.kafka.core.KafkaTemplate
-import org.springframework.test.context.ActiveProfiles
 import java.util.concurrent.TimeUnit
 
-@SpringBootTest(classes = [TestKafkaConfig::class, TestWebConfig::class], webEnvironment = SpringBootTest.WebEnvironment.DEFINED_PORT)
-@ActiveProfiles("test")
-class ShoppingApplicationTests {
+class ShoppingApplicationTests : BaseIntegrationTest() {
 
     @Autowired
     private lateinit var kafkaTemplate: KafkaTemplate<String, ProductChangeEvent>
@@ -43,7 +37,7 @@ class ShoppingApplicationTests {
         // then
         Awaitility.await()
                 .atMost(10, TimeUnit.SECONDS)
-                .until{ shopStub.currentUpdates() == startUpdates + 1 }
+                .until { shopStub.currentUpdates() == startUpdates + 1 }
     }
 
 }
