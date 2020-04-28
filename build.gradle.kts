@@ -12,8 +12,9 @@ repositories {
 }
 
 object Versions {
-    const val logbackJson = "0.1.5"
-    const val springKafka = "2.3.7.RELEASE"
+    const val LOGBACK_JSON = "0.1.5"
+    const val SPRING_KAFKA = "2.3.7.RELEASE"
+    const val COROUTINES = "1.3.5"
 }
 
 dependencies {
@@ -22,15 +23,17 @@ dependencies {
     implementation("org.springframework.boot:spring-boot-starter")
     implementation("org.jetbrains.kotlin:kotlin-reflect")
     implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
-    implementation("org.springframework.kafka:spring-kafka:${Versions.springKafka}")
+    implementation("org.springframework.kafka:spring-kafka:${Versions.SPRING_KAFKA}")
     implementation("org.slf4j:slf4j-api:1.7.30")
-    implementation("ch.qos.logback.contrib:logback-json-classic:${Versions.logbackJson}")
-    implementation("ch.qos.logback.contrib:logback-jackson:${Versions.logbackJson}")
+    implementation("ch.qos.logback.contrib:logback-json-classic:${Versions.LOGBACK_JSON}")
+    implementation("ch.qos.logback.contrib:logback-jackson:${Versions.LOGBACK_JSON}")
     implementation("org.springframework.boot:spring-boot-starter-webflux")
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:${Versions.COROUTINES}")
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-reactor:${Versions.COROUTINES}")
     testImplementation("org.springframework.boot:spring-boot-starter-test") {
         exclude(group = "org.junit.vintage", module = "junit-vintage-engine")
     }
-    testImplementation("org.springframework.kafka:spring-kafka-test:${Versions.springKafka}")
+    testImplementation("org.springframework.kafka:spring-kafka-test:${Versions.SPRING_KAFKA}")
     testImplementation("org.awaitility:awaitility:3.0.0")
 }
 
